@@ -1,0 +1,4 @@
+@EndUserText.label: 'Servizio manutenzione parametri'
+define service /EACM/UI_APP_PARAMS {
+  expose /EACM/C_APP_PARAMS as AppParams;
+}

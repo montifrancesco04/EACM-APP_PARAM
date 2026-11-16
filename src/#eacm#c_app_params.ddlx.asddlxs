@@ -1,0 +1,75 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo: {
+  typeName: 'Parametro applicativo',
+  typeNamePlural: 'Parametri applicativi',
+  title: {
+    type: #STANDARD,
+    value: 'ParameterId'
+  },
+  description: {
+    type: #STANDARD,
+    value: 'AppName'
+  }
+}
+annotate entity /eacm/c_app_params with
+{
+  @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Dati parametro',
+      position: 10
+    }
+  ]
+
+  @UI.lineItem: [
+    { position: 10, importance: #HIGH, label: 'Applicazione' }
+  ]
+  @UI.identification: [
+    { position: 10, label: 'Applicazione' }
+  ]
+  @UI.selectionField: [{ position: 10 }]
+  appname;
+
+    @UI.lineItem: [
+    { position: 20, importance: #HIGH, label: 'Parametro ID' }
+  ]
+  @UI.identification: [
+    { position: 20, label: 'Parametro ID' }
+  ]
+  @UI.selectionField: [{ position: 20 }]
+  parameterid;
+  
+  @UI.lineItem: [
+    { position: 30, importance: #HIGH, label: 'Valore' }
+  ]
+  @UI.identification: [
+    { position: 30, label: 'Valore' }
+  ]
+  value;
+
+    @UI.lineItem: [
+    { position: 40, importance: #MEDIUM, label: 'Descrizione' }
+  ]
+  @UI.identification: [
+    { position: 40, label: 'Descrizione' }
+  ]
+  @UI.selectionField: [{ position: 30 }]
+  description;
+
+  @UI.hidden: true
+  createdby;
+
+  @UI.hidden: true
+  createdat;
+
+  @UI.hidden: true
+  locallastchangedby;
+
+  @UI.hidden: true
+  locallastchangedat;
+
+  @UI.hidden: true
+  lastchangedat;
+}

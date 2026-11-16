@@ -1,0 +1,51 @@
+managed implementation in class /EACM/BP_I_APP_PARAMS unique;
+strict ( 2 );
+with draft;
+
+define behavior for /EACM/I_APP_PARAMS alias AppParams
+persistent table /eacm/app_params
+draft table /eacm/zd_app_p
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create )
+    AppName,
+    ParameterId;
+
+  field ( readonly : update )
+    AppName,
+    ParameterId,
+    Description;
+
+  field ( readonly )
+
+    CreatedBy,
+    CreatedAt,
+    LocalLastChangedBy,
+    LocalLastChangedAt,
+    LastChangedAt;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for /eacm/app_params
+  {
+    AppName            = app_name;
+    ParameterId        = parameter_id;
+    Value              = value;
+    Description        = description;
+    CreatedBy          = created_by;
+    CreatedAt          = created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt      = last_changed_at;
+  }
+}
